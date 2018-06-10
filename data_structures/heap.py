@@ -4,6 +4,9 @@ class Heap(object):
         self.nodes = [0]
         self.size = 0
 
+    def __repr__(self):
+        return self.nodes[1:]
+
     def move_up(self, size):
         while size // 2 > 0:
             if self.nodes[size] > self.nodes[size // 2]:
