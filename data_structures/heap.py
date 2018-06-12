@@ -1,8 +1,11 @@
 
 class Heap(object):
-    def __init__(self):
+    def __init__(self, *args):
         self.nodes = [0]
         self.size = 0
+
+        for item in args:
+            self.push(item)
 
     def __repr__(self):
         return self.nodes[1:]
