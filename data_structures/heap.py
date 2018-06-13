@@ -48,3 +48,6 @@ class Heap(object):
         self.move_down(1)
 
         return val
+    
+    def peek(self):
+        return self.nodes[1]
