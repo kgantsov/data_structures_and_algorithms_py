@@ -7,7 +7,6 @@ from data_structures.heap import Heap
 class TestLinkedList(TestCase):
 
     def test_init(self):
-
         tree = Heap(2, 1, 33, 5, 8, 12, 66)
 
         self.assertEqual(66, tree.pop())
@@ -19,7 +18,6 @@ class TestLinkedList(TestCase):
         self.assertEqual(1, tree.pop())
 
     def test_push(self):
-
         tree = Heap()
 
         tree.push(2)
@@ -37,9 +35,8 @@ class TestLinkedList(TestCase):
         self.assertEqual(5, tree.pop())
         self.assertEqual(2, tree.pop())
         self.assertEqual(1, tree.pop())
-    
-    def test_push(self):
 
+    def test_peek(self):
         tree = Heap()
 
         tree.push(2)
