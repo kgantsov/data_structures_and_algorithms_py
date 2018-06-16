@@ -7,6 +7,9 @@ class Heap(object):
         for item in args:
             self.push(item)
 
+    def __len__(self):
+        return self.size
+
     def __repr__(self):
         return self.nodes[1:]
 
