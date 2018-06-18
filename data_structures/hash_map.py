@@ -18,3 +18,11 @@ class HashMap:
             return None
         else:
             return next((v for k, v in self.hash_table[index] if k == key), None)
+
+    def delete(self, key):
+        index = hash(key) % self.capacity
+        if not self.hash_table[index]:
+            return None
+        else:
+            sub_index = next((i for i, x in enumerate(self.hash_table[index]) if x[0] == key), None)
+            del self.hash_table[index][sub_index]
