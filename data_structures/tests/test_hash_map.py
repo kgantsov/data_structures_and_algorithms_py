@@ -60,7 +60,6 @@ class TestLinkedList(TestCase):
 
     def test_capacity(self):
         m = HashMap()
-        import math
 
         self.assertEqual(None, m.get('test'))
 
