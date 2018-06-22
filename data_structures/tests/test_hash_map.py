@@ -6,7 +6,7 @@ from data_structures.hash_map import HashMap
 
 class TestLinkedList(TestCase):
 
-    def test_get(self):
+    def test_set(self):
         m = HashMap()
         for x in range(30):
             key = 'my_key_{}'.format(x)
@@ -14,7 +14,7 @@ class TestLinkedList(TestCase):
 
             m.set(key, value)
 
-    def test_set(self):
+    def test_get(self):
         m = HashMap()
         for x in range(30):
             key = 'my_key_{}'.format(x)
@@ -56,7 +56,6 @@ class TestLinkedList(TestCase):
         self.assertEqual(None, m.get('my_key_10'))
         self.assertEqual(None, m.get('my_key_18'))
         self.assertEqual(None, m.get('my_key_20'))
-        # self.assertTrue(False)
 
     def test_capacity(self):
         m = HashMap()
@@ -110,3 +109,14 @@ class TestLinkedList(TestCase):
         self.assertEqual(8, m.capacity)
         m.delete('my_key_1')
         self.assertEqual(4, m.capacity)
+
+    def test_set(self):
+        m = HashMap()
+        for x in range(30):
+            key = 'my_key_{}'.format(x)
+            value = 'my value {}'.format(x)
+
+            m.set(key, value)
+
+        self.assertEqual(30, len(list(m.keys())))
+        self.assertEqual(set('my_key_{}'.format(x) for x in range(30)), set(m.keys()))

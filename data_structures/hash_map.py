@@ -35,6 +35,11 @@ class HashMap:
             del self.hash_table[index][sub_index]
             self.size -= 1
 
+    def keys(self):
+        for bucket in self.hash_table:
+            for key, _ in bucket:
+                yield key
+
     def _resize(self, capacity):
         hash_table = [[] for i in range(capacity)]
 
