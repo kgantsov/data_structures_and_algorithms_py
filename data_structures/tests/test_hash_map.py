@@ -110,7 +110,7 @@ class TestLinkedList(TestCase):
         m.delete('my_key_1')
         self.assertEqual(4, m.capacity)
 
-    def test_set(self):
+    def test_keys(self):
         m = HashMap()
         for x in range(30):
             key = 'my_key_{}'.format(x)
