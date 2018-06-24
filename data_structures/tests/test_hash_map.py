@@ -120,3 +120,14 @@ class TestLinkedList(TestCase):
 
         self.assertEqual(30, len(list(m.keys())))
         self.assertEqual(set('my_key_{}'.format(x) for x in range(30)), set(m.keys()))
+
+    def test_values(self):
+        m = HashMap()
+        for x in range(30):
+            key = 'my_key_{}'.format(x)
+            value = 'my value {}'.format(x)
+
+            m.set(key, value)
+
+        self.assertEqual(30, len(list(m.values())))
+        self.assertEqual(set('my value {}'.format(x) for x in range(30)), set(m.values()))
