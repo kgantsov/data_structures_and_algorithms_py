@@ -45,6 +45,11 @@ class HashMap:
             for _, value in bucket:
                 yield value
 
+    def items(self):
+        for bucket in self.hash_table:
+            for key, value in bucket:
+                yield key, value
+
     def _resize(self, capacity):
         hash_table = [[] for i in range(capacity)]
 
