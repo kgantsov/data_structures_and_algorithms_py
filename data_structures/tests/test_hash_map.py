@@ -145,3 +145,26 @@ class TestLinkedList(TestCase):
             set(('my_key_{}'.format(x), 'my value {}'.format(x)) for x in range(30)),
             set(m.items())
         )
+
+    def test_magic_methods(self):
+        m = HashMap()
+
+        m['key_1'] = 'value 1'
+        m['key_2'] = 'value 2'
+        m['key_3'] = 'value 3'
+
+        self.assertEqual(m['key_1'], 'value 1')
+        self.assertEqual(m['key_2'], 'value 2')
+        self.assertEqual(m['key_3'], 'value 3')
+
+        del m['key_1']
+        self.assertEqual(m['key_1'], None)
+        self.assertEqual(m['key_2'], 'value 2')
+        self.assertEqual(m['key_3'], 'value 3')
+
+        del m['key_2']
+        del m['key_3']
+
+        self.assertEqual(m['key_1'], None)
+        self.assertEqual(m['key_2'], None)
+        self.assertEqual(m['key_3'], None)
