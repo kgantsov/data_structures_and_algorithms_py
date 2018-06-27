@@ -16,6 +16,9 @@ class HashMap:
     def __delitem__(self, key):
         return self.delete(key)
 
+    def __iter__(self):
+        return self.items()
+
     def set(self, key, value):
         if self._load() > 0.5:
             self._resize(self.capacity * 2)

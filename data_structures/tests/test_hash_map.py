@@ -168,3 +168,13 @@ class TestLinkedList(TestCase):
         self.assertEqual(m['key_1'], None)
         self.assertEqual(m['key_2'], None)
         self.assertEqual(m['key_3'], None)
+
+    def test_iterator(self):
+        m = HashMap()
+
+        m['key_1'] = 'value 1'
+        m['key_2'] = 'value 2'
+        m['key_3'] = 'value 3'
+
+        self.assertEqual({'key_1', 'key_2', 'key_3'}, {k for k, _ in m})
+        self.assertEqual({'value 1', 'value 2', 'value 3'}, {v for _, v in m})
