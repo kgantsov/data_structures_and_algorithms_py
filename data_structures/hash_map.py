@@ -27,13 +27,24 @@ class HashMap:
         self.hash_table[index].append((key, value))
         self.size += 1
 
-    def get(self, key):
+    def _get(self, key):
         index = hash(key) % self.capacity
 
         if not self.hash_table[index]:
+            raise KeyError()
+
+        try:
+            value = next((v for k, v in self.hash_table[index] if k == key))
+        except StopIteration:
+            raise KeyError()
+
+        return value
+
+    def get(self, key):
+        try:
+            return self._get(key)
+        except KeyError:
             return None
-        else:
-            return next((v for k, v in self.hash_table[index] if k == key), None)
 
     def delete(self, key):
         if self._load() < 0.25:
