@@ -55,8 +55,10 @@ class HashMap:
             return None
         else:
             sub_index = next((i for i, x in enumerate(self.hash_table[index]) if x[0] == key), None)
-            del self.hash_table[index][sub_index]
-            self.size -= 1
+
+            if sub_index is not None:
+                del self.hash_table[index][sub_index]
+                self.size -= 1
 
     def keys(self):
         for bucket in self.hash_table:
