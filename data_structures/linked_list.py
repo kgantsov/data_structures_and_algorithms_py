@@ -68,7 +68,7 @@ class LinkedList:
         return None
 
     def __bool__(self):
-        return self.head is None
+        return self.head is not None
 
     def __iter__(self):
         node = self.head
