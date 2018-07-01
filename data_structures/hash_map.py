@@ -19,6 +19,13 @@ class HashMap:
     def __iter__(self):
         return self.items()
 
+    def __contains__(self, key):
+        try:
+            self._get(key)
+            return True
+        except KeyError:
+            return False
+
     def set(self, key, value):
         if self._load() > 0.5:
             self._resize(self.capacity * 2)
