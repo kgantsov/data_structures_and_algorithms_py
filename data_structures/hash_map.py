@@ -26,6 +26,9 @@ class HashMap:
         except KeyError:
             return False
 
+    def __len__(self):
+        return self.size
+
     def set(self, key, value):
         if self._load() > 0.5:
             self._resize(self.capacity * 2)

@@ -192,3 +192,16 @@ class TestLinkedList(TestCase):
         self.assertEqual(False, 'key_4' in m)
         self.assertEqual(False, 'key_5' in m)
         self.assertEqual(False, 'key_6' in m)
+
+    def test_len(self):
+        m = HashMap()
+
+        self.assertEqual(0, len(m))
+
+        for x in range(30):
+            key = 'my_key_{}'.format(x)
+            value = 'my value {}'.format(x)
+
+            m.set(key, value)
+
+            self.assertEqual(x + 1, len(m))
