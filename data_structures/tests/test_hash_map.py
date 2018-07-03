@@ -146,7 +146,7 @@ class TestLinkedList(TestCase):
             set(m.items())
         )
 
-    def test_magic_methods(self):
+    def test_descriptors(self):
         m = HashMap()
 
         m['key_1'] = 'value 1'
