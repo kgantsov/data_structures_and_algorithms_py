@@ -16,6 +16,12 @@ class TestLinkedList(TestCase):
 
     def test_get(self):
         m = HashMap()
+
+        for x in range(30):
+            key = 'my_key_{}'.format(x)
+
+            self.assertEqual('No value', m.get(key, default='No value'))
+
         for x in range(30):
             key = 'my_key_{}'.format(x)
             value = 'my value {}'.format(x)

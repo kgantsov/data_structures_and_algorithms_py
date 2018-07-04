@@ -50,11 +50,11 @@ class HashMap:
 
         return value
 
-    def get(self, key):
+    def get(self, key, default=None):
         try:
             return self._get(key)
         except KeyError:
-            return None
+            return default or None
 
     def delete(self, key):
         if self._load() < 0.25:
