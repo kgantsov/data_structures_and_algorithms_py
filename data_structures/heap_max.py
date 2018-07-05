@@ -1,5 +1,5 @@
 
-class Heap(object):
+class HeapMax(object):
     def __init__(self, *args):
         self.nodes = [0]
         self.size = 0

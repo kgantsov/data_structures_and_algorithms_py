@@ -1,13 +1,13 @@
 import random
 from unittest import TestCase
 
-from data_structures.heap import Heap
+from data_structures.heap_max import HeapMax
 
 
 class TestLinkedList(TestCase):
 
     def test_init(self):
-        tree = Heap(2, 1, 33, 5, 8, 12, 66)
+        tree = HeapMax(2, 1, 33, 5, 8, 12, 66)
 
         self.assertEqual(66, tree.pop())
         self.assertEqual(33, tree.pop())
@@ -18,7 +18,7 @@ class TestLinkedList(TestCase):
         self.assertEqual(1, tree.pop())
 
     def test_push(self):
-        tree = Heap()
+        tree = HeapMax()
 
         tree.push(2)
         tree.push(1)
@@ -37,7 +37,7 @@ class TestLinkedList(TestCase):
         self.assertEqual(1, tree.pop())
 
     def test_peek(self):
-        tree = Heap()
+        tree = HeapMax()
 
         tree.push(2)
         tree.push(1)
@@ -56,7 +56,7 @@ class TestLinkedList(TestCase):
         self.assertEqual(12, tree.peek())
 
     def test_len(self):
-        tree = Heap()
+        tree = HeapMax()
 
         tree.push(2)
         self.assertEqual(1, len(tree))
