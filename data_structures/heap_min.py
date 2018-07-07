@@ -14,7 +14,6 @@ class HeapMin(object):
         return self.nodes[1:]
 
     def move_up(self, size):
-        # import ipdb;ipdb.set_trace()
         while size // 2 > 0:
             if self.nodes[size] < self.nodes[size // 2]:
                 self.nodes[size], self.nodes[size // 2] = self.nodes[size // 2], self.nodes[size]
