@@ -29,6 +29,9 @@ class HashMap:
     def __len__(self):
         return self.size
 
+    def __repr__(self):
+        return ''.join(['{', ', '.join(['"{}": "{}"'.format(k, v) for k, v in self.items()]), '}'])
+
     def set(self, key, value):
         if self._load() > 0.5:
             self._resize(self.capacity * 2)
