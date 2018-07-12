@@ -2,12 +2,15 @@ import math
 
 
 class BloomFilter:
-    def __init__(self, probability=0.001, n=10):
+    def __init__(self, probability=0.001, capacity=10):
         self.probability = probability
 
-        self.size = math.ceil((n * math.log(probability)) / math.log(1 / math.pow(2,  math.log(2))))
+        self.size = math.ceil(
+            (capacity * math.log(probability)) / math.log(1 / math.pow(2,  math.log(2)))
+        )
+
         self.hash_table = [False] * self.size
-        self.hashes_num = round(math.log(2) * self.size / n)
+        self.hashes_num = round(math.log(2) * self.size / capacity)
 
     def hash_func(self, key, seed=0):
         return sum(ord(x) + seed for x in str(key)) % self.size
