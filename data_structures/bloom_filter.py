@@ -10,7 +10,7 @@ class BloomFilter:
             (capacity * math.log(probability)) / math.log(1 / math.pow(2,  math.log(2)))
         )
 
-        self.hash_table = array.array('b', [0] * self.size)
+        self.hash_table = array.array('b', [0]) * self.size
         self.hashes_num = round(math.log(2) * self.size / capacity)
 
     def hash_func(self, key, seed=0):
