@@ -21,7 +21,8 @@ class BloomFilter:
             self.hash_table[self.hash_func(key, seed)] = 1
 
     def check(self, key):
-        return all([
-            self.hash_table[self.hash_func(key, seed)]
-            for seed in range(self.hashes_num)
-        ])
+        for seed in range(self.hashes_num):
+            if not self.hash_table[self.hash_func(key, seed)]:
+                return False
+
+        return True
