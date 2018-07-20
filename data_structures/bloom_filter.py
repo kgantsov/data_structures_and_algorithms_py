@@ -4,6 +4,7 @@ import math
 
 class BloomFilter:
     def __init__(self, probability=0.001, capacity=10):
+        self.capacity = capacity
         self.probability = probability
 
         self.size = math.ceil(
