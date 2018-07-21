@@ -14,6 +14,9 @@ class BloomFilter:
         self.hash_table = array.array('b', [0]) * self.size
         self.hashes_num = round(math.log(2) * self.size / capacity)
 
+    def __len__(self):
+        return self.capacity
+
     def hash_func(self, key, seed=0):
         return sum(ord(x) + seed for x in str(key)) % self.size
 
