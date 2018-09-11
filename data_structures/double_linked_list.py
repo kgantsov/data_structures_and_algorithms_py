@@ -18,8 +18,10 @@ class Node:
 
 
 class DoubleLinkedList:
-    head = None
-    tail = None
+    def __init__(self):
+        self.head = None
+        self.tail = None
+        self.length = 0
 
     def append(self, node):
         if self.head is None:
@@ -30,6 +32,7 @@ class DoubleLinkedList:
             node.prev = self.tail
             self.tail = node
 
+        self.length += 1
         return node
 
     def remove_node(self, node):
@@ -48,6 +51,7 @@ class DoubleLinkedList:
         node.prev = None
         node.next = None
 
+        self.length -= 1
         return node
 
     def pop(self):
@@ -68,6 +72,7 @@ class DoubleLinkedList:
         node.prev = None
         node.next = None
 
+        self.length -= 1
         return node
 
     def __iter__(self):
