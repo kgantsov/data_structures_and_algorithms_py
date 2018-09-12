@@ -75,6 +75,9 @@ class DoubleLinkedList:
         self.length -= 1
         return node
 
+    def __len__(self):
+        return self.length
+
     def __iter__(self):
         node = self.head
 
