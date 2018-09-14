@@ -18,10 +18,15 @@ class Node:
 
 
 class DoubleLinkedList:
-    def __init__(self):
+    def __init__(self, lst=None):
         self.head = None
         self.tail = None
         self.length = 0
+
+        lst = lst or []
+
+        for value in lst:
+            self.append(value)
 
     def append(self, node):
         if self.head is None:
