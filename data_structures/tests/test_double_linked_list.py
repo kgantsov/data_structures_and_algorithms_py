@@ -7,8 +7,27 @@ from data_structures.double_linked_list import Node
 
 class TestDoubleLinkedList(TestCase):
 
-    def test_append(self):
+    def test_init(self):
+        lst = DoubleLinkedList()
+        self.assertEqual(list(lst), [])
 
+        lst = DoubleLinkedList([])
+        self.assertEqual(list(lst), [])
+
+        lst = DoubleLinkedList([Node('2', 2), Node('5', 5),  Node('7', 7), Node('10', 10)])
+        self.assertEqual([x.key for x in lst], ['2', '5', '7', '10'])
+        self.assertEqual([x.value for x in lst], [2, 5, 7, 10])
+
+        expected_list = [
+            Node('key_{}'.format(random.randint(0, 100)), random.randint(0, 100))
+            for _ in range(20)
+        ]
+
+        lst = DoubleLinkedList(expected_list)
+        self.assertEqual([x.key for x in lst], [x.key for x in expected_list])
+        self.assertEqual([x.value for x in lst], [x.value for x in expected_list])
+
+    def test_append(self):
         lst = DoubleLinkedList()
 
         expected = []
