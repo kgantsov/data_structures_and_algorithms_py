@@ -38,3 +38,31 @@ class TestDoubleLinkedList(TestCase):
             expected.append((node.key, node.value))
 
         self.assertEqual([(x.key, x.value) for x in lst], expected)
+
+    def test_length(self):
+        lst = DoubleLinkedList()
+        self.assertEqual(len(lst), 0)
+
+        lst = DoubleLinkedList([
+            Node('key_{}'.format(random.randint(0, 100)), random.randint(0, 100))
+            for _ in range(20)
+        ])
+        self.assertEqual(len(lst), 20)
+
+        lst = DoubleLinkedList([
+            Node('key_{}'.format(random.randint(0, 100)), random.randint(0, 100))
+            for _ in range(48)
+        ])
+        self.assertEqual(len(lst), 48)
+
+        lst = DoubleLinkedList([
+            Node('key_{}'.format(random.randint(0, 100)), random.randint(0, 100))
+            for _ in range(7)
+        ])
+        self.assertEqual(len(lst), 7)
+
+        lst = DoubleLinkedList([
+            Node('key_{}'.format(random.randint(0, 100)), random.randint(0, 100))
+            for _ in range(33)
+        ])
+        self.assertEqual(len(lst), 33)
