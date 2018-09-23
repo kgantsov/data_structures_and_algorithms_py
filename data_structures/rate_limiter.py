@@ -33,7 +33,7 @@ class RateLimiter:
             bucket['value'] + refill_count * bucket['refill_amount']
         )
         bucket['last_update'] = min(
-            time.time(), 
+            time.time(),
             bucket['last_update'] + refill_count * bucket['last_update']
         )
 

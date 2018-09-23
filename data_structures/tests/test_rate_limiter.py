@@ -28,8 +28,7 @@ class TestRateLimiter(TestCase):
 
         self.assertEqual(rl.reduce('login', 1), 4)
 
-    def test_fase(self):
-
+    def test_fast(self):
         rl = RateLimiter()
         rl.add('api_call', 1000, 1, 1000)
 
